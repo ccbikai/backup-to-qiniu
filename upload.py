@@ -26,15 +26,12 @@ class PutPolicy(object):
 		
 policy = qiniu.rs.PutPolicy(bucket)
 uptoken = policy.token()
-host = ''.join(("/root/uploadtoqiniu/",host))
+host = ''.join(("/root/backuptoqiniu/",host))
 data = time.strftime("%Y-%m-%d-%H")
 random = str(random.randint(1000, 9999))
 key = '-'.join(("inbiji",data,random,"backup.tar.gz"))
 localfile = '-'.join((host,data,"backup.tar.gz"))
 print "start upload"
-err = qiniu.io.put_file(uptoken,key,localfile)
-if err is not None:
-    print "upload wrong"
-else:
-	print "upload ok"
+qiniu.io.put_file(uptoken,key,localfile)
+print "upload ok"
 exit()

@@ -4,20 +4,22 @@
 作者：(ccbikai)[http://weibo.com/ccbikai]  
 博客：http://miantiao.me/
 
+0. 安装 `python setup.py install`
+
 1. 配置banckuptoqiniu.sh;
 
-	BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录，多个目录用空格隔开
-	MYSQL_SERVER="127.0.0.1" #mysql主机地址
-	MYSQL_USER="mysqluser" #mysql用户名
-	MYSQL_PASS="mysqlpassword" #mysql密码
-	DATEBASE="dbname" #mysql数据库名称
-	HOST="hostname" #主机名称，方便标记
+    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录，多个目录用空格隔开  
+    MYSQL_SERVER="127.0.0.1" #mysql主机地址  
+    MYSQL_USER="mysqluser" #mysql用户名  
+    MYSQL_PASS="mysqlpassword" #mysql密码  
+    DATEBASE="dbname" #mysql数据库名称  
+    HOST="hostname" #主机名称，方便标记  
 
 2. 配置upload.py;
-	qiniu.conf.ACCESS_KEY = "QnH9x6nJ_" #从七牛获取
-	qiniu.conf.SECRET_KEY = "SyDoO7oAK_" #从七牛获取
-	bucket="bucketname" #buket名称就是你在七牛添加的空间
-	host="hostname" #主机名称，方便标记，需要和banckuptoqiniu.sh里边的主机名称一样
+    qiniu.conf.ACCESS_KEY = "QnH9x6nJ_" #从七牛获取  
+    qiniu.conf.SECRET_KEY = "SyDoO7oAK_" #从七牛获取  
+    bucket="bucketname" #buket名称就是你在七牛添加的空间  
+    host="hostname" #主机名称，方便标记，需要和banckuptoqiniu.sh里边的主机名称一样  
 
 3. 给banckuptoqiniu.sh授权，`chmod +x banckuptoqiniu.sh`;
 
