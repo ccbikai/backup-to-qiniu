@@ -28,7 +28,7 @@ policy = qiniu.rs.PutPolicy(bucket)
 uptoken = policy.token()
 host = ''.join(("/root/",host))
 data = time.strftime("%Y-%m-%d-%H")
-random = random.randint(1000, 9999)
+random = str(random.randint(1000, 9999))
 key = '-'.join(("inbiji",data,random,"backup.tar.gz"))
 localfile = '-'.join((host,data,"backup.tar.gz"))
 print "start upload"
