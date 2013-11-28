@@ -32,6 +32,6 @@ random = str(random.randint(1000, 9999))
 key = '-'.join(("inbiji",data,random,"backup.tar.gz"))
 localfile = '-'.join((host,data,"backup.tar.gz"))
 print "start upload"
-qiniu.io.put_file(uptoken,key,localfile)
+upload = qiniu.io.put_file(uptoken,key,localfile)
 print "upload ok"
 exit()

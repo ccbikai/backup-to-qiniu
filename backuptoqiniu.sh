@@ -10,9 +10,10 @@ HOST="hostname" #主机名称，方便标记
 NOW=$(date +"%Y-%m-%d-%H")
 echo "start dump mysql"
 mysqldump -u $MYSQL_USER -h $MYSQL_SERVER -p$MYSQL_PASS $DATEBASE > "$NOW-Databases.sql"
-echo "dump ok\nstart tar "
-tar -cPzf $HOST-$NOW-backup.tar.gz "$BACKUP_SRC" $NOW-Databases.sql
+echo "dump ok"
+echo "start tar"
+tar -cPzf $HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
 echo "tar ok"
 python /root/backuptoqiniu/upload.py
-rm -f $NOW-Databases.sql inbiji-$NOW-backup.tar.gz
+rm -f $NOW-Databases.sql $HOST-$NOW-backup.tar.gz
 echo "ALL ok"
