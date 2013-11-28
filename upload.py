@@ -26,7 +26,7 @@ class PutPolicy(object):
 		
 policy = qiniu.rs.PutPolicy(bucket)
 uptoken = policy.token()
-host = ''.join(("/root/",host))
+host = ''.join(("/root/uploadtoqiniu/",host))
 data = time.strftime("%Y-%m-%d-%H")
 random = str(random.randint(1000, 9999))
 key = '-'.join(("inbiji",data,random,"backup.tar.gz"))
