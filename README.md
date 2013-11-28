@@ -2,7 +2,7 @@
 
 利用七牛python SDK上传，需要配置banckuptoqiniu.sh和upload.py。  
 作者：(ccbikai)[http://weibo.com/ccbikai]  
-博客：(http://miantiao.me/)[http://miantiao.me/]
+博客：http://miantiao.me/
 
 1. 配置banckuptoqiniu.sh;
 
