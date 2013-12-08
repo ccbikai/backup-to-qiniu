@@ -1,8 +1,8 @@
 ##备份vps到七牛云存储脚本
 
 利用七牛python SDK上传，需要配置banckuptoqiniu.sh和upload.py。  
-作者：(ccbikai)[http://weibo.com/ccbikai]  
-博客：http://miantiao.me/
+作者：[ccbikai](http://weibo.com/ccbikai)  
+博客：http://miantiao.me/  
 小白教程：http://www.inbiji.com/biji/vps-backup-data-to-cloud-storage-seven-cattle.html
 
 0. 安装 `python setup.py install`
