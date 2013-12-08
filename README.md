@@ -9,7 +9,7 @@
 
 1. 配置banckuptoqiniu.sh;
 
-    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录，多个目录用空格隔开  
+    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录  
     MYSQL_SERVER="127.0.0.1" #mysql主机地址  
     MYSQL_USER="mysqluser" #mysql用户名  
     MYSQL_PASS="mysqlpassword" #mysql密码  
