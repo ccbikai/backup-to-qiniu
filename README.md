@@ -1,15 +1,15 @@
 ##备份vps到七牛云存储脚本
 
 利用七牛python SDK上传，需要配置banckuptoqiniu.sh和upload.py。  
-作者：(ccbikai)[http://weibo.com/ccbikai]  
-博客：http://miantiao.me/
+作者：[ccbikai](http://weibo.com/ccbikai)  
+博客：http://miantiao.me/  
 小白教程：http://www.inbiji.com/biji/vps-backup-data-to-cloud-storage-seven-cattle.html
 
 0. 安装 `python setup.py install`
 
 1. 配置banckuptoqiniu.sh;
 
-    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录，多个目录用空格隔开  
+    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录  
     MYSQL_SERVER="127.0.0.1" #mysql主机地址  
     MYSQL_USER="mysqluser" #mysql用户名  
     MYSQL_PASS="mysqlpassword" #mysql密码  
@@ -29,3 +29,4 @@
 5. 执行./backuptoqiniu.sh 既可以上传;
 
 6. 定时上传请在cron里边添加任务，方法自己谷歌。
+
