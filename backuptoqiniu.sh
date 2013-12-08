@@ -1,7 +1,7 @@
 #!/bin/bash
 #author:ccbikai
 #web:http://miantiao.me
-BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录，多个目录用空格隔开
+BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录
 MYSQL_SERVER="127.0.0.1" #mysql主机地址
 MYSQL_USER="mysqluser" #mysql用户名
 MYSQL_PASS="mysqlpassword" #mysql密码
@@ -15,5 +15,5 @@ echo "start tar"
 tar -cPzf /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
 echo "tar ok"
 python /root/backuptoqiniu/upload.py
-rm -f $NOW-Databases.sql $HOST-$NOW-backup.tar.gz
+rm -f $NOW-Databases.sql /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz
 echo "ALL ok"
