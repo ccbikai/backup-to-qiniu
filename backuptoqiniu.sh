@@ -12,8 +12,8 @@ echo "start dump mysql"
 mysqldump -u $MYSQL_USER -h $MYSQL_SERVER -p$MYSQL_PASS $DATEBASE > "$NOW-Databases.sql"
 echo "dump ok"
 echo "start tar"
-tar -cPzf /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
+tar -cPzf ./$HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
 echo "tar ok"
-python /root/backuptoqiniu/upload.py
-rm -f $NOW-Databases.sql /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz
+python ./upload.py
+rm -f $NOW-Databases.sql ./$HOST-$NOW-backup.tar.gz
 echo "ALL ok"
