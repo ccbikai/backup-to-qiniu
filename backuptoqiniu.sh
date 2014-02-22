@@ -14,6 +14,6 @@ echo "dump ok"
 echo "start tar"
 tar -cPzf ./$HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
 echo "tar ok"
-python ./upload.py
+python upload.py
 rm -f $NOW-Databases.sql ./$HOST-$NOW-backup.tar.gz
 echo "ALL ok"
