@@ -2,7 +2,8 @@
 
 利用七牛python SDK上传，需要配置backuptoqiniu.sh和upload.py。  
 作者：[ccbikai](http://weibo.com/ccbikai)  
-博客：http://miantiao.me/  
+博客：http://miantiao.me/    没有注册的同学需要[注册七牛账号](http://126.am/qiniuyun)  
+
 小白教程：http://www.inbiji.com/biji/vps-backup-data-to-cloud-storage-seven-cattle.html
 
 0. 安装 `python setup.py install`
