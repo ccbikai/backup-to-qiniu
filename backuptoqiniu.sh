@@ -14,11 +14,3 @@ echo "dump ok"
 echo "start tar"
 tar -cPzf /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz $NOW-Databases.sql "$BACKUP_SRC"
 echo "tar ok"
-<<<<<<< HEAD
-python /root/backuptoqiniu/upload.py
-rm -f $NOW-Databases.sql /root/backuptoqiniu/$HOST-$NOW-backup.tar.gz
-=======
-python upload.py
-rm -f $NOW-Databases.sql ./$HOST-$NOW-backup.tar.gz
->>>>>>> 3c56890d3123f834125591743cec358cf6294eaf
-echo "ALL ok"
