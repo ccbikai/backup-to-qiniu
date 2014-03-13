@@ -29,7 +29,7 @@ uptoken = policy.token()
 data = time.strftime("%Y-%m-%d-%H")
 random = str(random.randint(1000, 9999))
 key = '-'.join((host,data,random,"backup.tar.gz"))
-host = ''.join(("./",host))
+host = ''.join(("/root/backuptoqiniu/",host))
 localfile = '-'.join((host,data,"backup.tar.gz"))
 print "start upload"
 upload = qiniu.io.put_file(uptoken,key,localfile)
