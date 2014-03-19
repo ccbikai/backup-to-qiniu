@@ -62,6 +62,10 @@
 	crontab: installing new crontab
 	```
 
+##多个网站备份
+
+多个网站备份只需要将 `backuptoqiniu.sh` 拷贝一份，修改其中配置，运行新脚本，即可执行备份
+
 ##常见问题
 
 1. `mysqldump: command not found`，如果出现此错误，请参考以下方式解决
