@@ -55,7 +55,7 @@ echo "tar ok"
 
 # 上传
 echo "start upload"
-python upload.py -a $QINIU_ACCESS_KEY -s $QINIU_SECRET_KEY -b $QINIU_BUCKET -f $BACKUP_DIR/$BACKUP_FILENAME
+python $(dirname $0)/upload.py -a $QINIU_ACCESS_KEY -s $QINIU_SECRET_KEY -b $QINIU_BUCKET -f $BACKUP_DIR/$BACKUP_FILENAME
 echo "upload ok"
 
 # 清理备份文件
