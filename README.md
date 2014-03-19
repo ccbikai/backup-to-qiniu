@@ -1,4 +1,4 @@
-#备份vps到七牛云存储脚本
+#备份网站数据到七牛云存储脚本
 
 利用七牛python SDK上传，需要配置 `backuptoqiniu.sh`
 作者：[ccbikai](http://weibo.com/ccbikai)  
