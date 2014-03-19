@@ -1,33 +1,63 @@
-##备份vps到七牛云存储脚本
+#备份vps到七牛云存储脚本
 
-利用七牛python SDK上传，需要配置backuptoqiniu.sh和upload.py。  
+利用七牛python SDK上传，需要配置 `backuptoqiniu.sh`
 作者：[ccbikai](http://weibo.com/ccbikai)  
 博客：http://miantiao.me/    没有注册的同学需要[注册七牛账号](http://126.am/qiniuyun)  
 
-小白教程：http://www.inbiji.com/biji/vps-backup-data-to-cloud-storage-seven-cattle.html
+1. 安装七牛SDK，需要 `python` 环境：
+	```
+	python setup.py install
+	```
 
-0. 安装 `python setup.py install`
+2. 配置 `backuptoqiniu.sh`
+	```
+	## 备份配置信息 ##
 
-1. 配置backuptoqiniu.sh;
+	# 备份名称，用于标记
+	BACKUP_NAME="qiniu-backup"
+	# 备份目录，多个请空格分隔
+	BACKUP_SRC="/home/wwwroot/"
+	# Mysql主机地址
+	MYSQL_SERVER="127.0.0.1"
+	# Mysql用户名
+	MYSQL_USER="root"
+	# Mysql密码
+	MYSQL_PASS="mysqlpassword"
+	# Mysql备份数据库，多个请空格分隔
+	MYSQL_DBS="dbname"
+	# 备份文件临时存放目录，一般不需要更改
+	BACKUP_DIR="/tmp/backuptoqiniu/"
 
-    BACKUP_SRC="/home/wwwroot/www.qiniu.com/web" #需要备份的目录  
-    MYSQL_SERVER="127.0.0.1" #mysql主机地址  
-    MYSQL_USER="mysqluser" #mysql用户名  
-    MYSQL_PASS="mysqlpassword" #mysql密码  
-    DATEBASE="dbname" #mysql数据库名称  
-    HOST="hostname" #主机名称，方便标记  
+	## 备份配置信息 End ##
 
-2. 配置upload.py;
-    qiniu.conf.ACCESS_KEY = "QnH9x6nJ_" #从七牛获取  
-    qiniu.conf.SECRET_KEY = "SyDoO7oAK_" #从七牛获取  
-    bucket="bucketname" #buket名称就是你在七牛添加的空间  
-    host="hostname" #主机名称，方便标记，需要和backuptoqiniu.sh里边的主机名称一样  
-    
-3. 检查mysqldump命令能否执行，不能执行这样配置一下 http://www.inbiji.com/biji/mysqldump-command-not-found.html
+	## 七牛配置信息 ##
 
-4. 给backuptoqiniu.sh授权，`chmod +x backuptoqiniu.sh`;
+	#存放空间
+	QINIU_BUCKET="<YOUR_APP_bucket>"
+	#ACCESS_KEY
+	QINIU_ACCESS_KEY="<YOUR_APP_ACCESS_KEY>"
+	#SECRET_KEY
+	QINIU_SECRET_KEY="<YOUR_APP_SECRET_KEY>"
 
-5. 执行./backuptoqiniu.sh 既可以上传;
+	## 七牛配置信息 End ##
+	```
+	
+3. 执行 `./backuptoqiniu.sh` 开始备份上传
 
-6. 定时上传请在cron里边添加任务，方法自己谷歌。
+4. 利用 `cron` 定时执行，以下示例为每天凌晨02:00执行备份，请确认脚本路径
+	```
+	crontab -e
+	```
+	进入 cron 编辑，按 `i` 进入编辑模式，在最后输入以下内容
+	```
+	0 2 * * * /bin/bash /root/backuptoqiniu/backuptoqiniu.sh
+	```
+	按 `esc` 键，输入 `:wq`，回车保存文件，正常会出如下提示：
+	```
+	crontab: installing new crontab
+	```
+
+##常见问题
+	1. `mysqldump: command not found`，如果出现此错误，请参考以下方式解决
+		http://www.inbiji.com/biji/mysqldump-command-not-found.html
 
