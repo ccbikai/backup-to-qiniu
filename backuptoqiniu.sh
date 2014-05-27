@@ -17,7 +17,9 @@ MYSQL_PASS="mysqlpassword"
 # Mysql备份数据库，多个请空格分隔
 MYSQL_DBS="dbname"
 # 备份文件临时存放目录，一般不需要更改
-BACKUP_DIR="/tmp/backuptoqiniu/"
+BACKUP_DIR="/tmp/backuptoqiniu"
+# 备份文件压缩密码
+BACKUP_FILE_PASSWD="hello"
 
 ## 备份配置信息 End ##
 
@@ -49,8 +51,8 @@ echo "dump ok"
 
 # 打包
 echo "start tar"
-BACKUP_FILENAME="$BACKUP_NAME-backup-$NOW.tar.gz"
-tar -cPzf $BACKUP_DIR/$BACKUP_FILENAME $BACKUP_DIR/*.sql $BACKUP_SRC
+BACKUP_FILENAME="$BACKUP_NAME-backup-$NOW.zip"
+zip -q -r -P $BACKUP_FILE_PASSWD $BACKUP_DIR/$BACKUP_FILENAME $BACKUP_DIR/*.sql $BACKUP_SRC
 echo "tar ok"
 
 # 上传
